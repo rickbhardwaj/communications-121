@@ -1,13 +1,11 @@
 communications-121
 ==================
-EE 121 Audio Coding Report
-Rick Bhardwaj, Min Bu, Puneet Dewan, Ajay Tripathi, Feiyang Xue
+Audio Coding Report
 October 19th, 2013
 
 
 Abstract: 
 
-Programming Files Submitted by Rick Bhardwaj (ee121-ac)
 
 For our main sending scheme, we used a form of multiple On-Off Keying (OOK). It differs in traditional OOK in that 0’s are sent as an actually frequency, as to increase the robustness with which a zero is sent. The error correction we used is a combination of Reed Solomon codes, Hamming codes, scrambling/interleaving techniques, and a primitive hash-checker to verify if the message was correct or not on the receiver’s end. Aside from the theoretical tools we used, we also had a number of promising practical features in our implementation. For example, our scheme is completely dynamic and real-time. In particular, not only does the receiver detect the start and stop on the fly so that any variable-length message could be sent, but it also processes in real-time as it’s receiving the message, which takes away what would’ve been a huge hit in bitrate which comes from processing tons of data after receiving it. Finally, for synchronization, we would send long, strong chirp tones at the beginning and end of our message, and smaller chirps on top of each small burst or packet, so that our receiver would auto-sync with each packet it received. Overall, our scheme gets a rate of over 300 bits per second when sending a reasonably long message. This bitrate is the number of actual message bits we sent divided by the time it took to send it, which is measured from when the receiver detected the start of the message until when the receiver was completely done decoding the message.
 
